@@ -1,0 +1,3 @@
+[submodule "Code/OCR/doctr"]
+	path = Code/OCR/doctr
+	url = https://github.com/mindee/doctr
