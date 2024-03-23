@@ -1,6 +1,6 @@
 [submodule "Code/OCR/doctr"]
 	path = Code/OCR/doctr
-	url = https://github.com/mindee/doctr
+	url = https://github.com/mpilligua/doctr
 [submodule "Code/Layout_Analysis/VGT/detectron2"]
 	path = Code/Layout_Analysis/VGT/detectron2
 	url = https://github.com/facebookresearch/detectron2
