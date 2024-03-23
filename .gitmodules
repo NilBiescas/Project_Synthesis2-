@@ -4,3 +4,6 @@
 [submodule "Code/Layout_Analysis/VGT/detectron2"]
 	path = Code/Layout_Analysis/VGT/detectron2
 	url = https://github.com/facebookresearch/detectron2
+[submodule "Code/Layout_Analysis/unilm"]
+	path = Code/Layout_Analysis/unilm
+	url = https://github.com/microsoft/unilm
