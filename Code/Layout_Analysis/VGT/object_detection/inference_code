@@ -1,0 +1,8 @@
+python inference.py 
+--image_root "C:/Users/Maria/OneDrive - UAB/Documentos/3r de IA/Synthesis project II/Code/Layout_Analysis/VGT/object_detection/output/" 
+--grid_root "C:/Users/Maria/OneDrive - UAB/Documentos/3r de IA/Synthesis project II/Code/Layout_Analysis/VGT/object_detection/output/" 
+--image_name 'page_0' 
+--dataset docbank 
+--output_root output/ 
+--config "C:/Users/Maria/OneDrive - UAB/Documentos/3r de IA/Synthesis project II/Code/Layout_Analysis/VGT/object_detection/Configs/cascade/docbank_VGT_cascade_PTM.yaml" 
+--opts MODEL.WEIGHTS  "C:/Users/Maria/OneDrive - UAB/Documentos/3r de IA/Synthesis project II/Code/Layout_Analysis/VGT/docbank_VGT_model.pth"
