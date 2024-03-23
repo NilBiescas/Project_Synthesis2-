@@ -6,4 +6,4 @@
 	url = https://github.com/facebookresearch/detectron2
 [submodule "Code/Layout_Analysis/unilm"]
 	path = Code/Layout_Analysis/unilm
-	url = https://github.com/mpilligua/unilm
+	url = https://github.com/microsoft/unilm
