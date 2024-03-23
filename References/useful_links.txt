@@ -1,0 +1,12 @@
+https://github.com/BobLd/DocumentLayoutAnalysis
+Papers, links to code, dataset and other resources mainly for layout analysis. Also for table recognition and some generic document understanding models
+
+https://github.com/tstanislawek/awesome-document-understanding
+Overview of resources in differents aspects of document understanding
+
+https://www.pragmatic.ml/a-survey-of-document-understanding-models/
+Survey of document understanding transformer-based models
+
+https://nanonets.com/blog/ocr-with-rpa-and-document-understanding-uipath/
+Overview of RPA. Practical point of view of a conversion pipeline. 
+
