@@ -2,3 +2,5 @@
 /Synthesis_2/DocEnTR
 /Synthesis_2/SwinDocSegmenter
 /Code/Layout_Analysis/VGT/*.pth
+Code/Layout_Analysis/unilm/layoutlmv3/examples/model_final.pth
+Code/Layout_Analysis/unilm/layoutlmv3/examples/object_detection/checkpoint/model_final.pth
