@@ -8,6 +8,8 @@
 *.out
 *.err
 /Publaynet/*
+/Publaynet/train/*
+/publaynet/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
