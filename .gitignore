@@ -7,10 +7,7 @@
 /Code/Layout_Analysis/VGT/detectron2_prev
 *.out
 *.err
-/Publaynet/*
-/Publaynet/train/*
-/publaynet/*
-/publaynet/train/*
+/Datasets/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
