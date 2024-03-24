@@ -4,7 +4,7 @@ from doctr.models import ocr_predictor
 model = ocr_predictor(pretrained=True)
 model.to('cuda')
 # PDF
-doc = DocumentFile.from_pdf("/hhome/ps2g07/document_analysis/sample documents/Certificates of no criminal records/Constancia de no antecedentes penales federales.pdf")
+doc = DocumentFile.from_pdf("/hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Sample documents/Certificates of no criminal records/Constancia de no antecedentes penales federales.pdf")
 # Analyze
 result = model(doc)
 
