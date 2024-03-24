@@ -8,6 +8,8 @@
 *.out
 *.err
 /Datasets/*
+!/Datasets/Signatures_dataset
+/Datasets/Signatures_dataset/*
 !/Datasets/Signatures_dataset/ds3_splits.json
 
 # Byte-compiled / optimized / DLL files
