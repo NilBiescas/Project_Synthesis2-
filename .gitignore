@@ -1,6 +1,7 @@
 /Nil/detectron2
 /Nil/DocEnTR
 /Nil/SwinDocSegmenter
+Nil/yolo_dir/data/images/train/*
 /Code/Layout_Analysis/VGT/*.pth
 /Code/Layout_Analysis/unilm/layoutlmv3/examples/model_final.pth
 /Code/Layout_Analysis/unilm/layoutlmv3/examples/object_detection/checkpoint/model_final.pth
@@ -11,6 +12,7 @@
 !/Datasets/Signatures_dataset
 /Datasets/Signatures_dataset/*
 !/Datasets/Signatures_dataset/ds3_splits.json
+
 /Code/Denoise/MIRNetv2/demo/*
 
 # Byte-compiled / optimized / DLL files
