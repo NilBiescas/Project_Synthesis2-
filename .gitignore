@@ -1,7 +1,8 @@
 /Nil/detectron2
 /Nil/DocEnTR
 /Nil/SwinDocSegmenter
-Nil/yolo_dir/data/images/train/*
+Nil/yolo_dir/data/*
+Nil/yolo_dir/inference_yolo/*
 /Code/Layout_Analysis/VGT/*.pth
 /Code/Layout_Analysis/unilm/layoutlmv3/examples/model_final.pth
 /Code/Layout_Analysis/unilm/layoutlmv3/examples/object_detection/checkpoint/model_final.pth
@@ -121,3 +122,4 @@ venv.bak/
 .mypy_cache/
 speechlm/dataset/LibriSpeech/fast_phone2unit/dict.PHN.txt
 speechlm/dataset/LibriSpeech/fast_phone2unit/dict.phn.txt
+

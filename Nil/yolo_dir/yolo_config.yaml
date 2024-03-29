@@ -1,0 +1,17 @@
+path: '/hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Nil/yolo_dir/data' # dataset root dir
+train: images/train  # train images (relative to 'path')
+val: images/val  # val images (relative to 'path')
+
+
+batch: -1  # batch size
+names:
+  0: 'text'
+  1: 'title'
+  2: 'list'
+  3: 'table'
+  4: 'figure'
+  5: 'signature'
+  6: 'stamp'
+  7: 'qr'
+  8: 'barcode'
+
