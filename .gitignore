@@ -15,7 +15,8 @@ Nil/yolo_dir/inference_yolo/*
 !/Datasets/Signatures_dataset/ds3_splits.json
 
 /Code/Denoise/MIRNetv2/demo/*
-Nil/yolo_dir/data_part1/images/train/*.jpg
+Nil/yolo_dir/data_part1/*
+
 
 
 # Byte-compiled / optimized / DLL files
