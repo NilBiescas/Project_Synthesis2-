@@ -1,9 +1,8 @@
-path: '/hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Nil/yolo_dir/data' # dataset root dir
+path: '/hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Nil/yolo_dir/merge_data0_data1' # dataset root dir
 train: images/train  # train images (relative to 'path')
 val: images/val  # val images (relative to 'path')
 
 
-batch: -1  # batch size
 names:
   0: 'text'
   1: 'title'

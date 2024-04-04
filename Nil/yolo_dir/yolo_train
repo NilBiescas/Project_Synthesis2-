@@ -5,8 +5,8 @@
 #SBATCH -D /hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Nil/yolo_dir/ # working directory
 #SBATCH -p dcca40 # Partition to submit to
 #SBATCH --mem 2048 # 2GB solicitados.
-#SBATCH -o %x_%u_%j.out # File to which STDOUT will be written
-#SBATCH -e %x_%u_%j.err # File to which STDERR will be written
+#SBATCH -o error_folder/%x_%u_%j.out # File to which STDOUT will be written
+#SBATCH -e error_folder/%x_%u_%j.err # File to which STDERR will be written
 #SBATCH --gres gpu:1 # Para pedir gráficas
 
 python yolo_train.py
