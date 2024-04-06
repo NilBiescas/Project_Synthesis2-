@@ -11,6 +11,7 @@ Nil/yolo_dir/inference_yolo/*
 *.err
 /Datasets/*
 !/Datasets/Signatures_dataset
+!/Datasets/DocTR_output
 /Datasets/Signatures_dataset/*
 !/Datasets/Signatures_dataset/ds3_splits.json
 
