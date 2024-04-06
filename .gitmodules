@@ -7,3 +7,6 @@
 [submodule "Code/Denoise/MIRNetv2"]
 	path = Code/Denoise/MIRNetv2
 	url = https://github.com/mpilligua/MIRNetv2
+[submodule "/hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Code/OCR/doctr"]
+	path = /hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Code/OCR/doctr
+	url = https://github.com/mpilligua/doctr
