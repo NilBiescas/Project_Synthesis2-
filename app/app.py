@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, send_file, send_from_director
 import os
 app = Flask(__name__)
 
-UPLOAD_FOLDER = r'C:\Users\xavim\Desktop\Uni\3er\2\Syntesis\prova_app\uploads'
+UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

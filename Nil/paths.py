@@ -6,6 +6,8 @@ HERE = Path(__file__).parent
 
 # Path to the data directory
 
+
+
 SAMPLE_DOCUMENTS_DIR = HERE / "Sample documents/"
 SwinDocSegmenter_DIR = HERE / "SwinDocSegmenter"
 SwinDocSegmenter_DIR_WEIGHTS = SwinDocSegmenter_DIR / "weights"
