@@ -10,3 +10,7 @@
 [submodule "Code/OCR/doctr"]
 	path = Code/OCR/doctr
 	url = https://github.com/mpilligua/doctr
+
+[submodule "Code/TSR/table-transformer"]
+	path = Code/TSR/table-transformer
+	url = https://github.com/microsoft/table-transformer
