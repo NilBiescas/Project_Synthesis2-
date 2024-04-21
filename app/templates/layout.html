@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable File Converter</title>
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Favicon link -->
+    <link href="/static/favicon.ico" rel="icon">
+    <!-- Custom CSS -->
+    <link href="/static/styles.css" rel="stylesheet">
+
+    <!-- Google Fonts - Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS for title -->
+    <style>
+        .title-text {
+            font-size: 36px; /* Increase title font size */
+            font-weight: bold; /* Make text bold */
+            font-family: 'Montserrat', sans-serif; /* Change font family to Montserrat */
+            /* Add any other styling you desire */
+        }
+        .navbar-nav .nav-link {
+            font-size: 18px; /* Increase button font size */
+            color: #333; /* Set button text color */
+            transition: color 0.3s; /* Smooth transition for color change */
+        }
+        .navbar-nav .nav-link:hover {
+            color: #007bff; /* Change text color on hover */
+        }
+        .navbar-brand img {
+            width: 50px; /* Increase logo size */
+            height: 50px; /* Increase logo size */
+        }
+        .form-control {
+            width: 400px; /* Increase search bar width */
+        }
+        .container {
+            margin-top: 50px; /* Add space between navbar and next section */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f8f9fa;"> <!-- Change bg-light to a visually appealing light gray color -->
+        <div class="container-fluid">
+            <!-- Image and text -->
+            <span class="navbar-brand title-text">
+                <img src="/static/images/application-icon.png" class="d-inline-block align-top" alt="">
+                Editable File Converter
+            </span>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">🏠 Home</a> <!-- Add emoji and text -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('upload_file') }}">📤 Upload</a> <!-- Add emoji and text -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('team') }}">👥 Our Team</a> <!-- Add emoji and text -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('contact_us') }}">✉️ Contact us</a> <!-- Add emoji and text -->
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
