@@ -21,6 +21,7 @@ Nil/yolo_dir/merge_data0_data1/*
 Nil/lines_output/*
 *.**.pyc
 
+/Outputs/*
 
 
 # Byte-compiled / optimized / DLL files
