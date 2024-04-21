@@ -1,16 +1,11 @@
-path: '/hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Nil/yolo_dir/merge_data0_data1' # dataset root dir
+path: '/hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Nil/yolo_dir/synthetic2_data' # dataset root dir
 train: images/train  # train images (relative to 'path')
 val: images/val  # val images (relative to 'path')
 
 
 names:
-  0: 'text'
-  1: 'title'
-  2: 'list'
-  3: 'table'
-  4: 'figure'
-  5: 'signature'
-  6: 'stamp'
-  7: 'qr'
-  8: 'barcode'
+  0: 'signature'
+  1: 'stamp'
+  2: 'qr'
+  3: 'barcode'
 

@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, send_file, send_from_director
 from werkzeug.utils import secure_filename
 import os
 
-app = Flask(__name__)
+app = Flask(_name_)
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
@@ -53,5 +53,14 @@ def download_file(filename):
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
-if __name__ == '__main__':
+def cleanup_upload_folder():
+    for filename in os.listdir(app.config['UPLOAD_FOLDER']):
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        if os.path.isfile(file_path):
+            os.remove(file_path)
+
+import atexit
+atexit.register(cleanup_upload_folder)
+
+if _name_ == '_main_':
     app.run(debug=True)
