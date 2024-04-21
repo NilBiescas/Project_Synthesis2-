@@ -3,16 +3,57 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
+<style>
+    .navbar {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
 
-<div class="container">
-    <header class="transparent-black-bg">
-        <h1>Welcome to file conversor</h1>
-    </header>
-        
-    <p class="description">This is a simple file converter that allows you to upload a file 
-        and convert it to an editable format.</p>
+    .content {
+        padding-top: 70px; /* Adjust the padding-top based on the height of your navbar */
+    }
 
+    .title {
+        color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 3rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .title-description {
+        font-size: 1.5rem;
+        color: #555;
+    }
+
+    .justify-text {
+        text-align: justify;
+    }
+</style>
+
+<div class="container content">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <header class="transparent-black-bg">
+                <h1 class="display-4 mb-4 title">Welcome to <span class="text-primary">Editable File Converter</span></h1>
+            </header>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <p class="lead title-description justify-text">Convert your files to an editable format effortlessly.</p>
+            <p class="lead justify-text">Upload a file and convert it to an editable format pptx.</p>
+            <p class="lead justify-text">Our tool supports various file types including PDF, PNG, JPG, and more.</p>
+            <p class="lead justify-text">Get started now and experience the convenience of converting your files to editable format online!</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8 text-center">
+            <img src="/static/images/pipeline.png" alt="Pipeline" class="img-fluid">
+        </div>
+    </div>
 </div>
-
 {% endblock %}
-
