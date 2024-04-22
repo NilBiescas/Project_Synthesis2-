@@ -19,9 +19,8 @@ from ultralytics import YOLO
 
 ## Try: 2## Run 27
 # Pretrained weights from imagenet and using the default configuration and with the bigger dataset
-
-#model = YOLO("yolov8n.pt")
-#model.train(data='yolo_config.yaml', epochs = 50)
+model = YOLO("yolov8n.pt")
+model.train(data='yolo_config.yaml', epochs = 50)
 
 
 ## Try: 3## # Run30

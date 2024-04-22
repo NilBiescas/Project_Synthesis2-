@@ -7,6 +7,9 @@ Nil/yolo_dir/inference_yolo/*
 /Code/Layout_Analysis/unilm/layoutlmv3/examples/model_final.pth
 /Code/Layout_Analysis/unilm/layoutlmv3/examples/object_detection/checkpoint/model_final.pth
 /Code/Layout_Analysis/VGT/detectron2_prev
+NIL/yolo_dir/synthetic2_data/*
+NIL/lines_detection/*.jpg
+
 *.out
 *.err
 /Datasets/*

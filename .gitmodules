@@ -13,3 +13,10 @@
 [submodule "Code/TSR/table-transformer"]
 	path = Code/TSR/table-transformer
 	url = https://github.com/microsoft/table-transformer
+[submodule "Nil/lines_detection/Split_Merge_table_recognition"]
+	path = Nil/lines_detection/Split_Merge_table_recognition
+	url = https://github.com/fireae/Split_Merge_table_recognition/
+[submodule "Nil/yolo_dir/ultralytics"]
+	path = Nil/yolo_dir/ultralytics
+	url = https://github.com/ultralytics/ultralytics/
+
