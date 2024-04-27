@@ -6,7 +6,7 @@
 	url = https://github.com/mpilligua/unilm
 [submodule "Code/Denoise/MIRNetv2"]
 	path = Code/Denoise/MIRNetv2
-	url = https://github.com/mpilligua/MIRNetv2
+	url = https://github.com/swz30/MIRNetv2/
 [submodule "Code/OCR/doctr"]
 	path = Code/OCR/doctr
 	url = https://github.com/mpilligua/doctr
@@ -19,4 +19,12 @@
 [submodule "Nil/yolo_dir/ultralytics"]
 	path = Nil/yolo_dir/ultralytics
 	url = https://github.com/ultralytics/ultralytics/
+
+[submodule "Code/Denoise/MIRNetv2+DocTR"]
+	path = Code/Denoise/MIRNetv2+DocTR
+	url = https://github.com/swz30/MIRNetv2/
+
+[submodule "Code/DocEnTR"]
+	path = Code/DocEnTR
+	url = https://github.com/dali92002/DocEnTR
 
