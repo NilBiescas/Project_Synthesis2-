@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, send_file, send_from_director
 from werkzeug.utils import secure_filename
 import os
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
@@ -62,5 +62,5 @@ def cleanup_upload_folder():
 import atexit
 atexit.register(cleanup_upload_folder)
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True)
