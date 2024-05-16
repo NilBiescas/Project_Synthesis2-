@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <h3 class="card-title">Upload a File</h3>
                     <form id="uploadForm" action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
-                        <div class="form-group">
+                        <div class="form-group d-flex justify-content-center" id="select-file">
                             <input type="file" class="form-control-file" name="file" id="fileInput">
                         </div>
                         <div id="loading" style="display:none;">
@@ -27,9 +27,37 @@
             </div>
         </div>
     </div>
+    
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div id="ocrOutputCard" class="card" style="display:block;">
+                <div class="card-body">
+                    <h3 class="card-title">Layer Separation Output</h3>
+                        <img src="{{ url_for('uploaded_file', filename=l0) }}" class="img-fluid mb-3" alt="OCR output">
+                    <div id="ocrOutput"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="layerSepOutputCard" class="card" style="display:block;">
+                <div class="card-body">
+                    <h3 class="card-title">OCR Output</h3>
+                        <img src="{{ url_for('uploaded_file', filename=ocr_out) }}" class="img-fluid mb-3" alt="OCR output">
+                    <div id="layerSepOutput"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <style>
+    #select-file {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
     #loading {
         display: none;
         text-align: center;
@@ -67,15 +95,17 @@
         }
         // Show loading spinner
         document.getElementById('loading').style.display = 'block';
-        // Hide buttons
         document.getElementById('buttons').style.display = 'none';
+        document.getElementById('select-file').style.display = 'none';
+        
         return true;
     }
 
     // Function to show buttons again on error
     function showButtons() {
-        document.getElementById('buttons').style.display = 'block';
         document.getElementById('loading').style.display = 'none';
+        document.getElementById('select-file').style.display = 'block';
+        document.getElementById('buttons').style.display = 'block';
     }
 </script>
 {% endblock %}
