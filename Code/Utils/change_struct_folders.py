@@ -1,6 +1,6 @@
 import os
 
-dirr = r"C:\Users\Maria\OneDrive - UAB\Documentos\3r de IA\Synthesis project II\Github\Project_Synthesis2-\Sample documents - JPG"
+dirr = "/hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Code/Denoise/Restormer/demo/degraded"
 
 """
 change from 

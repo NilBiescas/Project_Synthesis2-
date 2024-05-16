@@ -6,7 +6,7 @@
 	url = https://github.com/mpilligua/unilm
 [submodule "Code/Denoise/MIRNetv2"]
 	path = Code/Denoise/MIRNetv2
-	url = https://github.com/swz30/MIRNetv2/
+	url = https://github.com/mpilligua/MIRNetv2
 [submodule "Code/OCR/doctr"]
 	path = Code/OCR/doctr
 	url = https://github.com/mpilligua/doctr
@@ -28,3 +28,6 @@
 	path = Code/DocEnTR
 	url = https://github.com/dali92002/DocEnTR
 
+[submodule "Code/Denoise/Restormer"]
+	path = Code/Denoise/Restormer
+	url = https://github.com/mpilligua/Restormer
