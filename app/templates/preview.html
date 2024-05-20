@@ -4,18 +4,16 @@
 
 {% block content %}
 <div class="container py-5">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <div class="card">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
                 <div class="card-body">
-                    <h3 class="card-title">File Preview</h3>
-                        <img src="{{ url_for('uploaded_file', filename=image_path) }}" class="img-fluid mb-3" alt="Preview">
-                    </div>
-                    <div>
-
-                    <div>
-                        <a href="{{ url_for('preview_file', filename=power_path) }}" class="btn btn-primary" target="_blank">Preview PDF</a>
-                        <a href="{{ url_for('download_file', filename=file_path) }}" class="btn btn-secondary">Download PowerPoint</a>
+                    <h3 class="card-title text-center mb-4">File Preview</h3>
+                    <img src="{{ url_for('uploaded_file', filename=file_png) }}" class="img-fluid mb-4 mx-auto d-block" alt="Preview">
+                    <div class="text-center">
+                        <a href="{{ url_for('preview_file', filename=file_pdf) }}" class="btn btn-secondary mx-2 mb-2" target="_blank">Preview PDF</a>
+                        <a href="{{ url_for('preview_file', filename=file_yolo) }}" class="btn btn-secondary mx-2 mb-2" target="_blank">Preview Detected Artifacts</a>
+                        <a href="{{ url_for('download_file', filename=file_pptx) }}" class="btn btn-primary mx-2 mb-2">Download PowerPoint</a>
                     </div>
                 </div>
             </div>

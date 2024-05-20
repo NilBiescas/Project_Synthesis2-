@@ -10,8 +10,13 @@
                 <div class="card-body">
                     <h3 class="card-title">Upload a File</h3>
                     <form id="uploadForm" action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
-                        <div class="form-group d-flex justify-content-center" id="select-file">
-                            <input type="file" class="form-control-file" name="file" id="fileInput">
+                        <div id="input-file" style="display:none;">
+                            <embed id="filePreview" src="{{ url_for('uploaded_file', filename='in.pdf') }}" width="100%" height="700px" type="application/pdf">
+                        </div>
+                        <div id="select-file">
+                            <div class="form-group d-flex justify-content-center">
+                                <input type="file" class="form-control-file" name="file" id="fileInput">
+                            </div>
                         </div>
                         <div id="loading" style="display:none;">
                             <p>Loading...</p>
@@ -25,24 +30,51 @@
                     </form>
                 </div>
             </div>
+            <div id="progressContainer" class="mt-3" style="display:none;">
+                <div class="progress">
+                    <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
         </div>
     </div>
-    
+
     <div class="row mt-5">
         <div class="col-md-6">
-            <div id="ocrOutputCard" class="card" style="display:block;">
+            <div id="l0" class="card" style="display:none;">
                 <div class="card-body">
-                    <h3 class="card-title">Layer Separation Output</h3>
-                        <img src="{{ url_for('uploaded_file', filename=l0) }}" class="img-fluid mb-3" alt="OCR output">
-                    <div id="ocrOutput"></div>
+                    <h3 class="card-title">Layer 0</h3>
+                    <img id="l0Image" src="" class="img-fluid mb-3" alt="Layer 0 output">
+                    <div id="layerSepOutput"></div>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div id="layerSepOutputCard" class="card" style="display:block;">
+            <div id="ocr" class="card" style="display:none;">
                 <div class="card-body">
                     <h3 class="card-title">OCR Output</h3>
-                        <img src="{{ url_for('uploaded_file', filename=ocr_out) }}" class="img-fluid mb-3" alt="OCR output">
+                    <img id="ocrImage" src="" class="img-fluid mb-3" alt="OCR output">
+                    <div id="ocrOutput"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- New Card for l1 Image -->
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div id="l1" class="card" style="display:none;">
+                <div class="card-body">
+                    <h3 class="card-title">Layer 1</h3>
+                    <img id="l1Image" src="" class="img-fluid mb-3" alt="Layer 1 output">
+                    <div id="layer1Output"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="yolo" class="card" style="display:none;">
+                <div class="card-body">
+                    <h3 class="card-title">Artifact Detection</h3>
+                    <img id="yoloImage" src="" class="img-fluid mb-3" alt="Artifact Detection output">
                     <div id="layerSepOutput"></div>
                 </div>
             </div>
@@ -56,7 +88,6 @@
         justify-content: center;
         align-items: center;
     }
-
 
     #loading {
         display: none;
@@ -84,21 +115,77 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
+
+    .progress {
+        height: 1.5rem;
+    }
+
+    .progress-bar {
+        background-color: #007bff;
+    }
 </style>
 
 <script>
+    document.getElementById('fileInput').addEventListener('change', function(event) {
+        var file = event.target.files[0];
+        if (file) {
+            var fileURL = URL.createObjectURL(file);
+            document.getElementById('filePreview').src = fileURL;
+            document.getElementById('input-file').style.display = 'block';
+        } else {
+            document.getElementById('input-file').style.display = 'none';
+        }
+    });
+
     function submitForm() {
         var fileInput = document.getElementById('fileInput');
         if (fileInput.files.length === 0) {
             alert('Please select a file.');
             return false;
         }
-        // Show loading spinner
-        document.getElementById('loading').style.display = 'block';
+        // Show loading spinner and progress bar
+        document.getElementById('loading').style.display = 'none';
         document.getElementById('buttons').style.display = 'none';
         document.getElementById('select-file').style.display = 'none';
+        document.getElementById('progressContainer').style.display = 'block';
+
+        // Start checking for images
+        startCheckingForImages();
         
         return true;
+    }
+
+    function startCheckingForImages() {
+        const images = [
+            {id: 'ocrImage', filename: 'ocr.png'},
+            {id: 'l0Image', filename: 'l0.png'},
+            {id: 'l1Image', filename: 'l1.png'},
+            {id: 'yoloImage', filename: 'yolo.png'}
+        ];
+
+        let imagesLoaded = 0;
+
+        images.forEach(image => {
+            const imgElement = document.getElementById(image.id);
+            const interval = setInterval(() => {
+                fetch(`{{ url_for('uploaded_file', filename='') }}${image.filename}`)
+                    .then(response => {
+                        if (response.ok) {
+                            if (!imgElement.src.endsWith(image.filename)) {
+                                imgElement.src = `{{ url_for('uploaded_file', filename='') }}${image.filename}`;
+                                document.getElementById(image.id).parentElement.parentElement.style.display = 'block';
+                                clearInterval(interval);
+                                imagesLoaded++;
+                                if (imagesLoaded === images.length) {
+                                    document.getElementById('loading').style.display = 'none';
+                                    document.getElementById('progressContainer').style.display = 'none';
+                                }
+                            }
+                        }
+                    })
+                    .catch(error => console.error('Error fetching image:', error));
+            }, 1000); // Check every second
+        });
     }
 
     // Function to show buttons again on error

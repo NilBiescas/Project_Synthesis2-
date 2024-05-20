@@ -29,10 +29,17 @@ with open(f"{dir2qrs}/splits.json", 'r') as f:
 with open(f"{dir2barcodes}/splits.json", 'r') as f:
     barcodes = json.load(f)
 
+universidades_mexico = '/hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Nil/universidades_mexico'
+with open(universidades_mexico, 'r') as f:
+    universidades = json.load(f)
 
+escudos_entidades_def = '/hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Nil/escudos_entidades_federativas'
+with open(escudos_entidades_def, 'r') as f:
+    escudos = json.load(f)
 #ds_dir = '/hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Datasets/Publaynet/Publaynet_partition_1/Synthetics_DS_partition1'
 # ds_dir = "C:/Users/Maria/OneDrive - UAB/Documentos/3r de IA/Synthesis project II/Github/Project_Synthesis2-/Datasets/Synthetics_DS_v2"
-ds_dir = "/hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Datasets/Synthetic_DS_v4"
+#ds_dir = "/hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Datasets/Synthetic_DS_v4"
+ds_dir = "/hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Nil/synthesis_stamps"
 os.makedirs(ds_dir, exist_ok=True)
 
 import numpy as np

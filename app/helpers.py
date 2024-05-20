@@ -182,6 +182,7 @@ def separate_layers(file_, out_dir, device):
         restored_l1 = img_as_ubyte(restored_l1[0])
 
         f = os.path.splitext(os.path.split(file_)[-1])[0]
+        # save_img((os.path.join(out_dir, f+'_l0.png')), restored_l0)
         save_img((os.path.join(out_dir, f+'_l0.png')), restored_l0)
         save_img((os.path.join(out_dir, f+'_l1.png')), restored_l1)
 
@@ -211,6 +212,33 @@ def png2pdf(list_of_png_paths, pdf_root):
     # writing to pdf file
     with open(pdf_root + "/layer_sep" + ".pdf", "wb") as f:
         f.write(pdf_bytes)
+    
+    
+    
+    
+''' YOLO UTILS'''
+
+import sys
+sys.path.append('/hhome/ps2g07/document_analysis/github/Project_Synthesis2-/Nil/yolo_dir/ultralytics')
+from ultralytics import YOLO
+from pathlib import Path
+import torch
+import os
+
+pretrained_weights = Path('/hhome/ps2g07/runs/detect/train31/weights/best.pt')
+
+def infer_yolo(imgs, out_name):
+    imgs = [imgs]
+    model = YOLO(pretrained_weights)  # load pre trained model
+    results = model(imgs[0])
+    idx_treshold = torch.where(results[0].boxes.conf > 0.6)[0]
+    cls = results[0].boxes[idx_treshold].cls.unsqueeze(1)
+    conf = results[0].boxes[idx_treshold].conf.unsqueeze(1)
+    box = results[0].boxes[idx_treshold].xyxy
+    updated_boxes = torch.cat((box, conf, cls), dim=1)
+    results[0].update(boxes=updated_boxes)
+
+    results[0].save(filename=out_name)
     
     
 if __name__ == "__main__":
