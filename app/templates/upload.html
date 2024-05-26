@@ -42,6 +42,27 @@
         <div class="col-md-6">
             <div id="l0" class="card" style="display:none;">
                 <div class="card-body">
+                    <h3 class="card-title">Tables Detected</h3>
+                    <img id="tablesImage" src="" class="img-fluid mb-3" alt="Tables output">
+                    <div id="TablesOutput"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="ocr" class="card" style="display:none;">
+                <div class="card-body">
+                    <h3 class="card-title">Structure Detected</h3>
+                    <img id="cellsImage" src="" class="img-fluid mb-3" alt="Cells output">
+                    <div id="CellsOutput"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div id="l0" class="card" style="display:none;">
+                <div class="card-body">
                     <h3 class="card-title">Layer 0</h3>
                     <img id="l0Image" src="" class="img-fluid mb-3" alt="Layer 0 output">
                     <div id="layerSepOutput"></div>
@@ -160,7 +181,9 @@
             {id: 'ocrImage', filename: 'ocr.png'},
             {id: 'l0Image', filename: 'l0.png'},
             {id: 'l1Image', filename: 'l1.png'},
-            {id: 'yoloImage', filename: 'yolo.png'}
+            {id: 'yoloImage', filename: 'yolo.png'},
+            {id: 'tablesImage', filename: 'tables.jpg'},
+            {id: 'cellsImage', filename: 'cells.jpg'}
         ];
 
         let imagesLoaded = 0;

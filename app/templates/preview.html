@@ -9,9 +9,8 @@
             <div class="card shadow">
                 <div class="card-body">
                     <h3 class="card-title text-center mb-4">File Preview</h3>
-                    <img src="{{ url_for('uploaded_file', filename=file_png) }}" class="img-fluid mb-4 mx-auto d-block" alt="Preview">
+                    <embed src="{{ url_for('uploaded_file', filename=file_pdf) }}" type="application/pdf" width="100%" height="700px" class="mb-4 mx-auto d-block" alt="Preview PDF">
                     <div class="text-center">
-                        <a href="{{ url_for('preview_file', filename=file_pdf) }}" class="btn btn-secondary mx-2 mb-2" target="_blank">Preview PDF</a>
                         <a href="{{ url_for('preview_file', filename=file_yolo) }}" class="btn btn-secondary mx-2 mb-2" target="_blank">Preview Detected Artifacts</a>
                         <a href="{{ url_for('download_file', filename=file_pptx) }}" class="btn btn-primary mx-2 mb-2">Download PowerPoint</a>
                     </div>

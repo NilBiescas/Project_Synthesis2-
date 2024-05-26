@@ -40,35 +40,29 @@ def inference_models(file, device="cpu"):
     num_pages = pdf2png(path2file, app.config['UPLOAD_FOLDER'] + "/" + file_name[:-4])
     
     files = os.listdir(path2file[:-4])
+    
+    presentation = Presentation() 
         
-    # infer_table(os.path.join(path2file[:-4], files[0]), out_dir = app.config['UPLOAD_FOLDER'], device=device)
-    # for page in range(num_pages):
-    infer_table(os.path.join(path2file[:-4], files[0]), out_dir = app.config['UPLOAD_FOLDER'], device=device)
-    separate_layers(os.path.join(path2file[:-4], files[0]), out_dir = app.config['UPLOAD_FOLDER'], device=device)
+    #infer_table(os.path.join(path2file[:-4], files[0]), out_dir = app.config['UPLOAD_FOLDER'], device=device)
+    for page in range(num_pages):
+        # infer_table(os.path.join(path2file[:-4], files[page]), out_dir = app.config['UPLOAD_FOLDER'], device=device)
+        separate_layers(os.path.join(path2file[:-4], files[page]), out_dir = app.config['UPLOAD_FOLDER'], device=device)
+        path2l0 = os.path.join(app.config['UPLOAD_FOLDER'], file_name[:-4]) + f"_{page}_l0.png"
+        path2l1 = os.path.join(app.config['UPLOAD_FOLDER'], file_name[:-4] + f"_{page}_l1.png")
+        result, doc = docTR_inference(path2l0, device=device)
     
-    path2l0 = os.path.join(app.config['UPLOAD_FOLDER'], file_name[:-4])
-    png2pdf([path2l0 + "/" + f for f in os.listdir(path2l0)], app.config['UPLOAD_FOLDER'])
-    # files[0][:-4] + "_l0.png", files[0][:-4] + "_l1.png"
-    path2l0pdf = os.path.join(app.config['UPLOAD_FOLDER'], "layer_sep.pdf")
-    
-    result, doc = docTR_inference(path2l0pdf, device=device)
-          
-    file_name_pptx = file_name.replace(".pdf", ".pptx")
-    path2savePptx = os.path.join(app.config['UPLOAD_FOLDER'], file_name_pptx)
-    #create_pptx(result, doc, path2savePptx)
-    #file_name_png = file_name.split(".")[0] + "_0_ocr.png"
-    #path2savePng = os.path.join(app.config['UPLOAD_FOLDER'], file_name_png)
-    #plot_slide(path2savePptx, 0, out_dir=path2savePng)
-    path2l1 = os.path.join(app.config['UPLOAD_FOLDER'], file_name[:-4] + "_0_l1.png")
-    path2yolo = os.path.join(app.config['UPLOAD_FOLDER'], file_name[:-4] + "_yolo.png")
-    file_name_yolo = file_name.split(".")[0] + "_yolo.png"
-    boxes, clases, num2class = infer_yolo(path2l1, out_name=path2yolo)
-    create_pptx(result, doc, path2savePptx, boxes, clases, num2class)
-    file_name_png = file_name.split(".")[0] + "_0_ocr.png"
-    path2savePng = os.path.join(app.config['UPLOAD_FOLDER'], file_name_png)
-    plot_slide(path2savePptx, 0, out_dir=path2savePng)
-    print("done")
-    return file_name_pptx, file_name_png, file_name_yolo
+        slides_pptx = file_name.replace(".pdf", f"{page}.pptx")
+        path2save_slide = os.path.join(app.config['UPLOAD_FOLDER'], slides_pptx)
+        file_name_png = file_name.split(".")[0] + f"_{page}_ocr.png"
+        path2savePng = os.path.join(app.config['UPLOAD_FOLDER'], file_name_png)
+
+        path2yolo = os.path.join(app.config['UPLOAD_FOLDER'], file_name[:-4] + f"{page}_yolo.png")
+        file_name_yolo = file_name.split(".")[0] + f"{page}_yolo.png"
+        boxes, clases, num2class = infer_yolo(path2l1, out_name=path2yolo)
+        create_pptx(presentation, page, result, doc, path2save_slide, boxes, clases, num2class)
+        
+        plot_slide(path2save_slide, page, out_dir=path2savePng)
+    return slides_pptx, file_name_png, file_name_yolo
     
 
 @app.route('/') 
@@ -96,6 +90,10 @@ def upload_file():
             file.save(file_path)
             
             file_pptx, file_png, file_yolo = inference_models(file, device=device)
+            
+            # file_pptx = filename.replace(".pdf", ".pptx")
+            # file_png = filename.replace(".pdf", "_0_ocr.png")
+            # file_yolo = filename.replace(".pdf", "0_yolo.png")
             
             pptx_path = os.path.join(app.config['UPLOAD_FOLDER'], file_pptx)
             pdf_name = filename.replace(".pdf", "2.pdf")
@@ -143,6 +141,7 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 def cleanup_upload_folder():
+    # pass
     # remove every file and dir in the upload folder
     for root, dirs, files in os.walk(app.config['UPLOAD_FOLDER']):
         for file in files:
@@ -154,4 +153,4 @@ import atexit
 atexit.register(cleanup_upload_folder)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5003)
+    app.run(debug=True, port=5002)
